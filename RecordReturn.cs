@@ -239,6 +239,10 @@ namespace Paint_Products_Database
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            btnAddRecord.Enabled = true;
+            btnDeleteEntry.Enabled = false;
+
             txtID.Text = dataGridView1.CurrentRow.Cells["ProductID"].Value.ToString();
             txtProductName.Text = dataGridView1.CurrentRow.Cells["ProductName"].Value.ToString();
             cbxManufacturer.Text = dataGridView1.CurrentRow.Cells["Manufacturer"].Value.ToString();
@@ -280,6 +284,10 @@ namespace Paint_Products_Database
 
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
+
+            btnAddRecord.Enabled = true;
+            btnDeleteEntry.Enabled = false;
+
             txtID.Text = dataGridView1.CurrentRow.Cells["ProductID"].Value.ToString();
             txtProductName.Text = dataGridView1.CurrentRow.Cells["ProductName"].Value.ToString();
             cbxManufacturer.Text = dataGridView1.CurrentRow.Cells["Manufacturer"].Value.ToString();
@@ -393,6 +401,7 @@ namespace Paint_Products_Database
         {
             btnDeleteEntry.Enabled = true;
             btnAddRecord.Enabled = false;
+            btnSubmit.Enabled = false;
 
 
             tempamount = Convert.ToInt32(dataGridView2.CurrentRow.Cells["rAmount"].Value.ToString());
@@ -444,6 +453,8 @@ namespace Paint_Products_Database
                 }
                 btnDeleteEntry.Enabled = false;
                 btnAddRecord.Enabled = true;
+
+                btnSubmit.Enabled = true;
             }
         }
 

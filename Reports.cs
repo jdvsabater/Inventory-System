@@ -110,6 +110,7 @@ namespace Paint_Products_Database
         public Reports()
         {
             InitializeComponent();
+            loadTemp();
         }
 
         private void cbxInventorySearchSelect_SelectedIndexChanged(object sender, EventArgs e)
@@ -415,5 +416,51 @@ namespace Paint_Products_Database
         {
 
         }
+
+        public void loadTemp()
+        {
+            try
+            {
+                cmd = new OleDbCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT ProductID, ProductName, Manufacturer, Type, Status, DateTaken, Stock, Amount, TotalPrice, Price, AddedBy FROM TempRecordIn";
+                con.Open();
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+                    dataGridView5.DataSource = dt;
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        private void BtnClearData_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string comand = "DELETE FROM TempRecordInOut";
+            OleDbCommand cmd = new OleDbCommand(comand, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                ((DataTable)dataGridView5.DataSource).DefaultView.RowFilter = string.Format("ProductID like '%{0}%'", textBox1.Text.Trim().Replace("'", "''"));
+            }
+            catch (Exception)
+            {
+            }
+        }
     }
+
+   
 }

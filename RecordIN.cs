@@ -85,11 +85,14 @@ namespace Paint_Products_Database
                 txtStock.Text = Convert.ToString(stock);
             }
         }
+
+       
+
         public RecordIN()
         {
             InitializeComponent();          
             refreshInventory();
-            
+            refreshRecordsIn();
         }
 
         private void txtSearchBoxProductType_TextChanged(object sender, EventArgs e)
@@ -197,7 +200,7 @@ namespace Paint_Products_Database
         {
             try
             {
-                ((DataTable)dataGridView2.DataSource).DefaultView.RowFilter = string.Format("Type like '%{0}%'", txtRecordSearchBoxProductType.Text.Trim().Replace("'", "''"));
+                ((DataTable)dataGridView3.DataSource).DefaultView.RowFilter = string.Format("Type like '%{0}%'", txtRecordSearchBoxProductType.Text.Trim().Replace("'", "''"));
             }
             catch (Exception)
             {
@@ -208,7 +211,7 @@ namespace Paint_Products_Database
         {
             try
             {
-                ((DataTable)dataGridView2.DataSource).DefaultView.RowFilter = string.Format("ProductID like '%{0}%'", txtRecordSearchBoxProductName.Text.Trim().Replace("'", "''"));
+                ((DataTable)dataGridView3.DataSource).DefaultView.RowFilter = string.Format("ProductID like '%{0}%'", txtRecordSearchBoxProductName.Text.Trim().Replace("'", "''"));
             }
             catch (Exception)
             {
@@ -219,7 +222,7 @@ namespace Paint_Products_Database
         {
             try
             {
-                ((DataTable)dataGridView2.DataSource).DefaultView.RowFilter = string.Format("Manufacturer like '%{0}%'", txtRecordSearchBoxManufacturer.Text.Trim().Replace("'", "''"));
+                ((DataTable)dataGridView3.DataSource).DefaultView.RowFilter = string.Format("Manufacturer like '%{0}%'", txtRecordSearchBoxManufacturer.Text.Trim().Replace("'", "''"));
             }
             catch (Exception)
             {
@@ -228,6 +231,8 @@ namespace Paint_Products_Database
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            btnAddRecord.Enabled = true;
+            btnDeleteEntry.Enabled = false;
             txtID.Text = dataGridView1.CurrentRow.Cells["ProductID"].Value.ToString();
             txtProductName.Text = dataGridView1.CurrentRow.Cells["ProductName"].Value.ToString();
             cbxManufacturer.Text = dataGridView1.CurrentRow.Cells["Manufacturer"].Value.ToString();
@@ -241,7 +246,69 @@ namespace Paint_Products_Database
             }
 
         }
-        
+        public void refreshRecordsIn()
+        {
+            try
+            {
+                cmd = new OleDbCommand();
+                cmd.Connection = con;
+                cmd.CommandText = "SELECT ProductID, ProductName, Manufacturer, Type, Status, DateTaken, Stock, Amount, TotalPrice, Price FROM tempRecordIn";
+                con.Open();
+
+                OleDbDataReader reader = cmd.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    DataTable dt = new DataTable();
+                    dt.Load(reader);
+                    dataGridView3.DataSource = dt;
+                }
+            }
+            finally
+            {
+                con.Close();
+            }
+
+        }
+
+        public void tempRecordIn()
+        {
+            if (txtAmount.Text == "")
+            {
+                MessageBox.Show("Fields must not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                amount = Convert.ToInt32(txtAmount.Text);
+                int tempstock = Convert.ToInt32(txtStock.Text);
+                price = Convert.ToDouble(txtPrice.Text);
+                stock = Convert.ToInt32(txtStock.Text);
+
+                stock = tempstock + amount;
+
+                totalprice = stock * price;
+                con.Open();
+                //string[] row = { txtID.Text, txtProductName.Text, cbxManufacturer.Text, cbxType.Text, txtStatus.Text, dateTimePicker1.Text, stocksubmit.ToString(), txtAmount.Text, (((Convert.ToInt32(txtStock.Text)) * (Convert.ToDouble(txtPrice.Text)))).ToString(), txtPrice.Text };
+                cmd = new OleDbCommand("INSERT INTO tempRecordIn(ProductID, ProductName, Manufacturer, Type, Status, DateTaken, Stock, Amount , TotalPrice, Price) VALUES (@ProductID, @ProductName, @Manufacturer, @Type, @Status, @DateTaken, @Stock, @Amount , @TotalPrice, @Price)", con);
+                cmd.Parameters.AddWithValue("@ProductID", txtID.Text);
+                cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text);
+                cmd.Parameters.AddWithValue("@Manufacturer", cbxManufacturer.Text);
+                cmd.Parameters.AddWithValue("@Type", cbxType.Text);
+                cmd.Parameters.AddWithValue("@Status", txtStatus.Text);
+                cmd.Parameters.AddWithValue("@DateTaken", dateTimePicker1.Text);
+                cmd.Parameters.AddWithValue("@Stock", txtStock.Text);
+                cmd.Parameters.AddWithValue("@Amount", amount);
+                cmd.Parameters.AddWithValue("@TotalPrice", totalprice);
+                cmd.Parameters.AddWithValue("@Price", price);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+                stocksubmit = stock;
+                txtStock.Text = Convert.ToString(stock);
+                RecordIN rin = new RecordIN();
+                rin.Refresh();
+            }
+        }
         private void btnAddRecord_Click(object sender, EventArgs e)
         {
             try
@@ -253,7 +320,7 @@ namespace Paint_Products_Database
                 }
                 else
                 {
-                    btnSubmit.Enabled = true;
+                    
                     updateInventorymethod();
                     if (txtAmount.Text == "")
                     {
@@ -261,13 +328,18 @@ namespace Paint_Products_Database
                     }
                     else
                     {
-                        string[] row = { txtID.Text, txtProductName.Text, cbxManufacturer.Text, cbxType.Text, txtStatus.Text, dateTimePicker1.Text, stocksubmit.ToString(), txtAmount.Text, (((Convert.ToInt32(txtStock.Text)) * (Convert.ToDouble(txtPrice.Text)))).ToString(), txtPrice.Text };
 
-                        dataGridView2.Rows.Add(row);
+
+                        tempRecordIn();
+                        //string[] row = { txtID.Text, txtProductName.Text, cbxManufacturer.Text, cbxType.Text, txtStatus.Text, dateTimePicker1.Text, stocksubmit.ToString(), txtAmount.Text, (((Convert.ToInt32(txtStock.Text)) * (Convert.ToDouble(txtPrice.Text)))).ToString(), txtPrice.Text };
+
+                        //dataGridView2.Rows.Add(row);
 
                         refreshInventory();
+                        refreshRecordsIn();
                     }
                 }
+                dataGridView3.Visible = true;
 
                 txtID.Text = "";
                 txtProductName.Text = "";
@@ -277,6 +349,7 @@ namespace Paint_Products_Database
                 txtAmount.Text = "";
                 txtTotalAmount.Text = "";
                 txtPrice.Text = "";
+                btnSubmit.Enabled = true;
             }
             catch
             {
@@ -307,61 +380,92 @@ namespace Paint_Products_Database
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            
-            if (dataGridView2.Rows.Count == 0)
+            txtRecordSearchBoxProductType.Clear();
+            txtRecordSearchBoxManufacturer.Clear();
+            txtRecordSearchBoxProductName.Clear();
+            if (dataGridView3.Rows.Count == 0)
             {
                 MessageBox.Show("Record Table is Empty!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                con.Open();
-
-                for (int i = 0; i < dataGridView2.Rows.Count; i++)
+                DialogResult result = MessageBox.Show("Do you want to submit the records?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    txtID.Text = dataGridView2.Rows[i].Cells["ProductID"].Value.ToString();
-                    txtProductName.Text = dataGridView2.Rows[i].Cells["ProductName"].Value.ToString();
-                    cbxManufacturer.Text = dataGridView2.Rows[i].Cells["Manufacturer"].Value.ToString();
-                    cbxType.Text = dataGridView2.Rows[i].Cells["Type"].Value.ToString();
-                    txtStatus.Text = dataGridView2.Rows[i].Cells["Status"].Value.ToString();
-                    dateTimePicker1.Text = dataGridView2.Rows[i].Cells["Date"].Value.ToString();
-                    txtStock.Text = dataGridView2.Rows[i].Cells["Stck"].Value.ToString();
-                    txtAmount.Text = dataGridView2.Rows[i].Cells["rAmount"].Value.ToString();
-                    txtTotalAmount.Text = dataGridView2.Rows[i].Cells["TPrice"].Value.ToString();
-                    txtPrice.Text = dataGridView2.Rows[i].Cells["Prce"].Value.ToString();
+                    con.Open();
+
+                    for (int i = 0; i < dataGridView3.Rows.Count; i++)
+                    {
+                        txtID.Text = dataGridView3.Rows[i].Cells["ProductID"].Value.ToString();
+                        txtProductName.Text = dataGridView3.Rows[i].Cells["ProductName"].Value.ToString();
+                        cbxManufacturer.Text = dataGridView3.Rows[i].Cells["Manufacturer"].Value.ToString();
+                        cbxType.Text = dataGridView3.Rows[i].Cells["Type"].Value.ToString();
+                        txtStatus.Text = dataGridView3.Rows[i].Cells["Status"].Value.ToString();
+                        dateTimePicker1.Text = dataGridView3.Rows[i].Cells["DateTaken"].Value.ToString();
+                        txtStock.Text = dataGridView3.Rows[i].Cells["Stock"].Value.ToString();
+                        txtAmount.Text = dataGridView3.Rows[i].Cells["Amount"].Value.ToString();
+                        txtTotalAmount.Text = dataGridView3.Rows[i].Cells["TotalPrice"].Value.ToString();
+                        txtPrice.Text = dataGridView3.Rows[i].Cells["Price"].Value.ToString();
 
 
 
-                    cmd = new OleDbCommand("INSERT INTO RecordIn(ProductID, ProductName, Manufacturer, Type, Status, DateTaken, Stock, Amount, TotalPrice, Price, AddedBy) VALUES (@ProductID, @ProductName, @Manufacturer, @Type, @Status, @DateTaken, @Stock, @Amount, @TotalPrice, @Price, @AddedBy)", con);
+                        cmd = new OleDbCommand("INSERT INTO RecordIn(ProductID, ProductName, Manufacturer, Type, Status, DateTaken, Stock, Amount, TotalPrice, Price, AddedBy) VALUES (@ProductID, @ProductName, @Manufacturer, @Type, @Status, @DateTaken, @Stock, @Amount, @TotalPrice, @Price, @AddedBy)", con);
 
-                    cmd.Parameters.AddWithValue("@ProductID", txtID.Text);
-                    cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text);
-                    cmd.Parameters.AddWithValue("@Manufacturer", cbxManufacturer.Text);
-                    cmd.Parameters.AddWithValue("@Type", cbxType.Text);
-                    cmd.Parameters.AddWithValue("@Status", txtStatus.Text);
-                    cmd.Parameters.AddWithValue("@DateTaken", dateTimePicker1.Text);
-                    cmd.Parameters.AddWithValue("@Stock", txtStock.Text);
-                    cmd.Parameters.AddWithValue("@Amount", txtAmount.Text);
-                    cmd.Parameters.AddWithValue("@TotalPrice", txtTotalAmount.Text);
-                    cmd.Parameters.AddWithValue("@Price", txtPrice.Text);
-                    cmd.Parameters.AddWithValue("@AddedBy", Variables.username.ToString());
+                        cmd.Parameters.AddWithValue("@ProductID", txtID.Text);
+                        cmd.Parameters.AddWithValue("@ProductName", txtProductName.Text);
+                        cmd.Parameters.AddWithValue("@Manufacturer", cbxManufacturer.Text);
+                        cmd.Parameters.AddWithValue("@Type", cbxType.Text);
+                        cmd.Parameters.AddWithValue("@Status", txtStatus.Text);
+                        cmd.Parameters.AddWithValue("@DateTaken", dateTimePicker1.Text);
+                        cmd.Parameters.AddWithValue("@Stock", txtStock.Text);
+                        cmd.Parameters.AddWithValue("@Amount", txtAmount.Text);
+                        cmd.Parameters.AddWithValue("@TotalPrice", txtTotalAmount.Text);
+                        cmd.Parameters.AddWithValue("@Price", txtPrice.Text);
+                        cmd.Parameters.AddWithValue("@AddedBy", Variables.username.ToString());
 
 
 
-                    cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
+                    }
+
+
+
+                    con.Close();
+                    
+                    con.Open();
+                    string comand = "DELETE FROM TempRecordIn";
+                    cmd = new OleDbCommand(comand, con);
+                    cmd.ExecuteNonQuery();                
+                      
+                    con.Close();
+
+                    
+                    
+
+
+                    MessageBox.Show("Record Success!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //dataGridView2.Rows.Clear();
+                    //dataGridView2.Refresh();
+                    btnSubmit.Enabled = false;
+                    lblRecordNotice.Text = "RECORD(s) IS SUBMITTED!";
+                    
                 }
 
+                else
+                {
+                    
+                }
+
+
                 
-                
-                con.Close();
-                MessageBox.Show("Record Success!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dataGridView2.Rows.Clear();
-                dataGridView2.Refresh();
-                btnSubmit.Enabled = false;
-                lblRecordNotice.Text = "RECORD(s) IS SUBMITTED!";
             }
 
+            RecordIN rin = new RecordIN();
+            rin.Refresh();
             Reports rpts = new Reports();
             rpts.Refresh();
+
+            dataGridView3.Visible = false;
         }
 
         private void txtID_TextChanged(object sender, EventArgs e)
@@ -379,6 +483,7 @@ namespace Paint_Products_Database
             
             btnDeleteEntry.Enabled = true;
             btnAddRecord.Enabled = false;
+            btnSubmit.Enabled = false;
 
             tempamount = Convert.ToInt32(dataGridView2.CurrentRow.Cells["rAmount"].Value.ToString());
             stock = Convert.ToInt32(dataGridView2.CurrentRow.Cells["Stck"].Value.ToString());
@@ -401,11 +506,15 @@ namespace Paint_Products_Database
             if (result == DialogResult.Yes)
             {
 
-                foreach (DataGridViewRow row in dataGridView2.SelectedRows)
-                {
-                    dataGridView2.Rows.RemoveAt(row.Index);
-                }
+                con.Open();
+                cmd = new OleDbCommand("DELETE FROM tempRecordIn WHERE ProductID =@ProductID AND Type=@Type", con);
+                cmd.Parameters.AddWithValue("@ProductID", txtID.Text);
+                cmd.Parameters.AddWithValue("@Type", cbxType.Text);
 
+
+
+                cmd.ExecuteNonQuery();
+                con.Close();
                 stock = stock - tempamount;
                 totalprice = stock * tempprice;
                 con.Open();
@@ -420,18 +529,42 @@ namespace Paint_Products_Database
 
                 con.Close();
                 txtStock.Text = Convert.ToString(stock);
+                refreshRecordsIn();
                 refreshInventory();
-                dataGridView2.Refresh();
+
                 MessageBox.Show("Entry Deleted", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (dataGridView2.Rows.Count == 0)
+                if (dataGridView3.Rows.Count == 0)
                 {
                     btnSubmit.Enabled = false;
+                    
                 }
                 btnDeleteEntry.Enabled = false;
                 btnAddRecord.Enabled = true;
+                btnSubmit.Enabled = true;
 
             }
+        }
+
+        private void DataGridView3_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnDeleteEntry.Enabled = true;
+            btnAddRecord.Enabled = false;
+            btnSubmit.Enabled = false;
+
+            tempamount = Convert.ToInt32(dataGridView3.CurrentRow.Cells["Amount"].Value.ToString());
+            stock = Convert.ToInt32(dataGridView3.CurrentRow.Cells["Stock"].Value.ToString());
+            tempprice = Convert.ToDouble(dataGridView3.CurrentRow.Cells["Price"].Value.ToString());
+
+
+            txtID.Text = dataGridView3.CurrentRow.Cells["ProductID"].Value.ToString();
+            txtProductName.Text = dataGridView3.CurrentRow.Cells["ProductName"].Value.ToString();
+            cbxManufacturer.Text = dataGridView3.CurrentRow.Cells["Manufacturer"].Value.ToString();
+            cbxType.Text = dataGridView3.CurrentRow.Cells["Type"].Value.ToString();
+            txtStock.Text = dataGridView3.CurrentRow.Cells["Stock"].Value.ToString();
+            txtPrice.Text = dataGridView3.CurrentRow.Cells["Price"].Value.ToString();
+
+            row = dataGridView1.CurrentCell.RowIndex;
         }
     }
 }

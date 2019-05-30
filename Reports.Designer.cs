@@ -52,11 +52,15 @@
             this.btnToExcel2 = new System.Windows.Forms.Button();
             this.btnToExcel3 = new System.Windows.Forms.Button();
             this.btnToExcel4 = new System.Windows.Forms.Button();
+            this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.btnClearData = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -328,11 +332,40 @@
             this.btnToExcel4.Visible = false;
             this.btnToExcel4.Click += new System.EventHandler(this.btnToExcel4_Click);
             // 
+            // dataGridView5
+            // 
+            this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView5.Location = new System.Drawing.Point(512, 199);
+            this.dataGridView5.Name = "dataGridView5";
+            this.dataGridView5.Size = new System.Drawing.Size(574, 313);
+            this.dataGridView5.TabIndex = 25;
+            // 
+            // btnClearData
+            // 
+            this.btnClearData.Location = new System.Drawing.Point(952, 113);
+            this.btnClearData.Name = "btnClearData";
+            this.btnClearData.Size = new System.Drawing.Size(134, 36);
+            this.btnClearData.TabIndex = 29;
+            this.btnClearData.Text = "Execute";
+            this.btnClearData.UseVisualStyleBackColor = true;
+            this.btnClearData.Click += new System.EventHandler(this.BtnClearData_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(974, 44);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 39);
+            this.textBox1.TabIndex = 30;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            // 
             // Reports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 32F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 729);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnClearData);
+            this.Controls.Add(this.dataGridView5);
             this.Controls.Add(this.btnToExcel4);
             this.Controls.Add(this.btnToExcel3);
             this.Controls.Add(this.btnToExcel2);
@@ -359,7 +392,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -388,5 +423,8 @@
         public System.Windows.Forms.DataGridView dataGridView3;
         public System.Windows.Forms.DataGridView dataGridView2;
         public System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView5;
+        private System.Windows.Forms.Button btnClearData;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

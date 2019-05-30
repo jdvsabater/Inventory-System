@@ -31,6 +31,7 @@
             this.grpInventory = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.grpRecord = new System.Windows.Forms.GroupBox();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -83,6 +84,7 @@
             this.grpInventory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grpRecord.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -115,7 +117,7 @@
             // 
             // grpRecord
             // 
-            this.grpRecord.Controls.Add(this.dataGridView2);
+            this.grpRecord.Controls.Add(this.dataGridView3);
             this.grpRecord.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpRecord.Location = new System.Drawing.Point(319, 474);
             this.grpRecord.Name = "grpRecord";
@@ -123,6 +125,19 @@
             this.grpRecord.TabIndex = 1;
             this.grpRecord.TabStop = false;
             this.grpRecord.Text = "RECORD";
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(6, 43);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.Size = new System.Drawing.Size(959, 150);
+            this.dataGridView3.TabIndex = 14;
+            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView3_CellClick);
             // 
             // dataGridView2
             // 
@@ -141,12 +156,13 @@
             this.rAmount,
             this.TPrice,
             this.Prce});
-            this.dataGridView2.Location = new System.Drawing.Point(12, 43);
+            this.dataGridView2.Location = new System.Drawing.Point(35, 62);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(1007, 206);
             this.dataGridView2.TabIndex = 14;
+            this.dataGridView2.Visible = false;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // ProductID
@@ -368,6 +384,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnDeleteEntry);
+            this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Controls.Add(this.lblRecordNotice);
             this.groupBox1.Controls.Add(this.txtStatus);
             this.groupBox1.Controls.Add(this.txtTotalAmount);
@@ -641,6 +658,7 @@
             this.grpInventory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.grpRecord.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
@@ -706,5 +724,6 @@
         public System.Windows.Forms.TextBox txtPrice;
         public System.Windows.Forms.TextBox txtTotalAmount;
         private System.Windows.Forms.Button btnDeleteEntry;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }

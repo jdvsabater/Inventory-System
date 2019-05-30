@@ -299,7 +299,6 @@
             this.cbxType.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxType.Enabled = false;
             this.cbxType.FormattingEnabled = true;
             this.cbxType.Items.AddRange(new object[] {
@@ -321,7 +320,6 @@
             this.cbxManufacturer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.cbxManufacturer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxManufacturer.Enabled = false;
             this.cbxManufacturer.FormattingEnabled = true;
             this.cbxManufacturer.Items.AddRange(new object[] {

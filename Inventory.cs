@@ -210,8 +210,16 @@ namespace Paint_Products_Database
             if (result == DialogResult.Yes)
             {
                 con.Open();
-                cmd = new OleDbCommand("DELETE FROM Inventory WHERE ProductID = '" + dataGridView1.SelectedCells[0].Value.ToString() + "'", con);
+                cmd = new OleDbCommand("DELETE FROM Inventory WHERE ProductID =@ProductID AND Type=@Type", con);
+                cmd.Parameters.AddWithValue("@ProductID", txtID.Text);
+                cmd.Parameters.AddWithValue("@Type", cbxType.Text);
+
+
+
                 cmd.ExecuteNonQuery();
+
+
+
 
                 MessageBox.Show("Product Deleted", "Delete", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
