@@ -1,0 +1,48 @@
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\bin\Debug\PaintProductDatabase.accdb
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\bin\Debug\Product Database.accdb
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\bin\Debug\Paint Products Database.exe.config
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\bin\Debug\Paint Products Database.exe
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\bin\Debug\Paint Products Database.pdb
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint Products Database.csprojAssemblyReference.cache
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint Products Database.csproj.ResolveComReference.cache
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.Inventory.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.LogInForm.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.ManufacturerDetails.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.ManufacturerList.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.Form1.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.Properties.Resources.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.QuantityAlert.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.RecordIN.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.BranchList.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.RecordOut.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.RecordReturn.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.Reports.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.TypeList.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint_Products_Database.UserList.resources
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint Products Database.csproj.GenerateResource.cache
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint Products Database.csproj.CoreCompileInputs.cache
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint Products Database.exe
+C:\Users\HP LAPTOP\Documents\Visual Studio 2017\Projects\Paint Products Database\Paint Products Database\obj\Debug\Paint Products Database.pdb
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint Products Database.exe
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint Products Database.pdb
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.Inventory.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.ManufacturerDetails.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.ManufacturerList.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.Form1.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.Properties.Resources.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.QuantityAlert.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.RecordIN.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.BranchList.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.RecordOut.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.RecordReturn.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.Reports.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.TypeList.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.UserList.resources
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint Products Database.csproj.GenerateResource.cache
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint Products Database.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\bin\Debug\PaintProductDatabase.accdb
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\bin\Debug\Product Database.accdb
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\bin\Debug\Paint Products Database.exe.config
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\bin\Debug\Paint Products Database.exe
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\bin\Debug\Paint Products Database.pdb
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\Debug\Paint_Products_Database.Variables.resources

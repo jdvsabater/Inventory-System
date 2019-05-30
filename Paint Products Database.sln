@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paint Products Database", "Paint Products Database.csproj", "{AE82CA32-1D81-465B-8539-E32D54B47A0F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE82CA32-1D81-465B-8539-E32D54B47A0F}.Debug|x86.ActiveCfg = Debug|x86
+		{AE82CA32-1D81-465B-8539-E32D54B47A0F}.Debug|x86.Build.0 = Debug|x86
+		{AE82CA32-1D81-465B-8539-E32D54B47A0F}.Release|x86.ActiveCfg = Release|x86
+		{AE82CA32-1D81-465B-8539-E32D54B47A0F}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B65F964C-A17C-4754-BE07-56C63DED7E22}
+	EndGlobalSection
+EndGlobal
