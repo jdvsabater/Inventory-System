@@ -215,12 +215,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="InventoryProductDatabase.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="PaintProductDatabase.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="Product Database.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
