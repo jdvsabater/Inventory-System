@@ -26,7 +26,7 @@ namespace Paint_Products_Database
 
         int tempamount;//
         int row;
-        int tempprice;//
+        double tempprice;//
         public void refreshInventory()
         {
             try
@@ -264,7 +264,7 @@ namespace Paint_Products_Database
                 else
                 {
                     updateInventorymethod();
-                    string[] row = { txtID.Text, txtProductName.Text,  cbxManufacturer.Text, cbxType.Text, txtStatus.Text, dateTimePicker1.Text, txtStock.Text, txtAmount.Text, (((Convert.ToInt32(txtStock.Text)) * (Convert.ToInt32(txtPrice.Text)))).ToString(), txtPrice.Text };
+                    string[] row = { txtID.Text, txtProductName.Text,  cbxManufacturer.Text, cbxType.Text, txtStatus.Text, dateTimePicker1.Text, txtStock.Text, txtAmount.Text, (((Convert.ToInt32(txtStock.Text)) * (Convert.ToDouble(txtPrice.Text)))).ToString(), txtPrice.Text };
 
                     dataGridView2.Rows.Add(row);
 
@@ -367,7 +367,7 @@ namespace Paint_Products_Database
 
             tempamount = Convert.ToInt32(dataGridView2.CurrentRow.Cells["rAmount"].Value.ToString());
             stock = Convert.ToInt32(dataGridView2.CurrentRow.Cells["Stck"].Value.ToString());
-            tempprice = Convert.ToInt32(dataGridView2.CurrentRow.Cells["Prce"].Value.ToString());
+            tempprice = Convert.ToDouble(dataGridView2.CurrentRow.Cells["Prce"].Value.ToString());
 
             txtID.Text = dataGridView2.CurrentRow.Cells["ProductID"].Value.ToString();
             txtProductName.Text = dataGridView2.CurrentRow.Cells["ProductName"].Value.ToString();

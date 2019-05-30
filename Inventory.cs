@@ -452,7 +452,7 @@ namespace Paint_Products_Database
                 else
                 {
 
-                    double price = Convert.ToInt32(txtProductPrice.Text);
+                    double price = Convert.ToDouble(txtProductPrice.Text);
                     int stock = Convert.ToInt32(txtStock.Text);
                     totalprice = stock * price;
                     con.Open();
