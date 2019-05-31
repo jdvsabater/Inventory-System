@@ -337,6 +337,7 @@ namespace Paint_Products_Database
 
                         refreshInventory();
                         refreshRecordsIn();
+                        btnSubmit.Enabled = true;
                     }
                 }
                 dataGridView3.Visible = true;
@@ -349,7 +350,7 @@ namespace Paint_Products_Database
                 txtAmount.Text = "";
                 txtTotalAmount.Text = "";
                 txtPrice.Text = "";
-                btnSubmit.Enabled = true;
+                
             }
             catch
             {
@@ -362,9 +363,26 @@ namespace Paint_Products_Database
             DialogResult result = MessageBox.Show("Are you done Recording?", "Close Confirmation", MessageBoxButtons.YesNo/*Cancel*/, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                resetStocks();
+
+                con.Open();
+                string comand = "DELETE FROM TempRecordIn";
+                cmd = new OleDbCommand(comand, con);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+
+
+
+                dataGridView3.Visible = false;
+                RecordIN rin = new RecordIN();
+                rin.Refresh();
+
                 this.Hide();
                 this.Parent = null;
                 e.Cancel = true;
+
+
             }
 
             else 
@@ -376,6 +394,43 @@ namespace Paint_Products_Database
         private void Records_FormClosed(object sender, FormClosedEventArgs e)
         {
             
+        }
+
+        public void resetStocks()
+        {
+            con.Open();
+
+            for (int i = 0; i < dataGridView3.Rows.Count; i++)
+            {
+
+                tempamount = Convert.ToInt32(dataGridView3.Rows[i].Cells["Amount"].Value.ToString());
+                stock = Convert.ToInt32(dataGridView3.Rows[i].Cells["Stock"].Value.ToString());
+                tempprice = Convert.ToDouble(dataGridView3.Rows[i].Cells["Price"].Value.ToString());
+
+
+                txtID.Text = dataGridView3.Rows[i].Cells["ProductID"].Value.ToString();
+                txtProductName.Text = dataGridView3.Rows[i].Cells["ProductName"].Value.ToString();
+                cbxManufacturer.Text = dataGridView3.Rows[i].Cells["Manufacturer"].Value.ToString();
+                cbxType.Text = dataGridView3.Rows[i].Cells["Type"].Value.ToString();
+                txtStock.Text = dataGridView3.Rows[i].Cells["Stock"].Value.ToString();
+                txtPrice.Text = dataGridView3.Rows[i].Cells["Price"].Value.ToString();
+
+                stock = stock - tempamount;
+                totalprice = stock * tempprice;
+
+                cmd = new OleDbCommand("UPDATE Inventory SET Stock=@Stock, TotalPrice=@TotalPrice WHERE ProductID=@ProductID AND Type=@Type", con);
+                cmd.Parameters.AddWithValue("@Stock", stock);
+                cmd.Parameters.AddWithValue("@TotalPrice", totalprice);
+                cmd.Parameters.AddWithValue("@ProductID", txtID.Text);
+                cmd.Parameters.AddWithValue("@Type", cbxType.Text);
+
+
+
+                cmd.ExecuteNonQuery();
+            }
+
+
+            con.Close();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
@@ -448,7 +503,9 @@ namespace Paint_Products_Database
                     //dataGridView2.Refresh();
                     btnSubmit.Enabled = false;
                     lblRecordNotice.Text = "RECORD(s) IS SUBMITTED!";
-                    
+
+
+                    dataGridView3.Visible = false;
                 }
 
                 else
@@ -460,12 +517,11 @@ namespace Paint_Products_Database
                 
             }
 
+            txtAmount.Text = " ";
             RecordIN rin = new RecordIN();
             rin.Refresh();
             Reports rpts = new Reports();
             rpts.Refresh();
-
-            dataGridView3.Visible = false;
         }
 
         private void txtID_TextChanged(object sender, EventArgs e)
@@ -505,7 +561,10 @@ namespace Paint_Products_Database
             DialogResult result = MessageBox.Show("Do you really want to delete?", "Close Confirmation", MessageBoxButtons.YesNo/*Cancel*/, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-
+                if (dataGridView3.RowCount == 1)
+                {
+                    dataGridView3.Visible = false;
+                }
                 con.Open();
                 cmd = new OleDbCommand("DELETE FROM tempRecordIn WHERE ProductID =@ProductID AND Type=@Type", con);
                 cmd.Parameters.AddWithValue("@ProductID", txtID.Text);

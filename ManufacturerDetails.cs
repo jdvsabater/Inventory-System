@@ -242,7 +242,10 @@ namespace Paint_Products_Database
                 btnCancel.Enabled = false;
                 btnSave.Enabled = false;
                 btnClear.Enabled = false;
-                
+                if (dataGridView1.RowCount == 1)
+                {
+                    dataGridView1.Visible = false;
+                }
             }
 
             else
@@ -306,6 +309,7 @@ namespace Paint_Products_Database
                     MRefresh();
 
                 }
+                dataGridView1.Visible = true;
                 btnAdd.Enabled = true;
                 btnEdit.Enabled = false;
                 btnDelete.Enabled = false;

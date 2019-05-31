@@ -29,6 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Manufacturer = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stck = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Prce = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDeleteEntry = new System.Windows.Forms.Button();
             this.lblRecordNotice = new System.Windows.Forms.Label();
             this.txtStatus = new System.Windows.Forms.TextBox();
@@ -67,30 +78,22 @@
             this.cbxInventorySearchSelect = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.grpRecord = new System.Windows.Forms.GroupBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.ProductID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Manufacturer = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Type = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stck = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Prce = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.grpInventory = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.grpRecord.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.grpInventory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Controls.Add(this.btnDeleteEntry);
             this.groupBox1.Controls.Add(this.lblRecordNotice);
             this.groupBox1.Controls.Add(this.txtStatus);
@@ -121,6 +124,91 @@
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "PRODUCT";
+            this.groupBox1.Enter += new System.EventHandler(this.GroupBox1_Enter);
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProductID,
+            this.ProductName,
+            this.Manufacturer,
+            this.Type,
+            this.Status,
+            this.Date,
+            this.Stck,
+            this.rAmount,
+            this.TPrice,
+            this.Prce});
+            this.dataGridView2.Location = new System.Drawing.Point(-336, -16);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView2.Size = new System.Drawing.Size(1007, 206);
+            this.dataGridView2.TabIndex = 14;
+            this.dataGridView2.Visible = false;
+            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // ProductID
+            // 
+            this.ProductID.HeaderText = "Product ID";
+            this.ProductID.Name = "ProductID";
+            this.ProductID.ReadOnly = true;
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "Product Name";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // Manufacturer
+            // 
+            this.Manufacturer.HeaderText = "Manufacturer";
+            this.Manufacturer.Name = "Manufacturer";
+            this.Manufacturer.ReadOnly = true;
+            // 
+            // Type
+            // 
+            this.Type.HeaderText = "Type";
+            this.Type.Name = "Type";
+            this.Type.ReadOnly = true;
+            // 
+            // Status
+            // 
+            this.Status.HeaderText = "Status";
+            this.Status.Name = "Status";
+            this.Status.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Date ";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Stck
+            // 
+            this.Stck.HeaderText = "Stock";
+            this.Stck.Name = "Stck";
+            this.Stck.ReadOnly = true;
+            // 
+            // rAmount
+            // 
+            this.rAmount.HeaderText = "Amount";
+            this.rAmount.Name = "rAmount";
+            // 
+            // TPrice
+            // 
+            this.TPrice.HeaderText = "Total Price";
+            this.TPrice.Name = "TPrice";
+            this.TPrice.ReadOnly = true;
+            // 
+            // Prce
+            // 
+            this.Prce.HeaderText = "Price";
+            this.Prce.Name = "Prce";
+            this.Prce.ReadOnly = true;
             // 
             // btnDeleteEntry
             // 
@@ -226,7 +314,7 @@
             // 
             // btnAddRecord
             // 
-            this.btnAddRecord.Location = new System.Drawing.Point(777, 66);
+            this.btnAddRecord.Location = new System.Drawing.Point(777, 48);
             this.btnAddRecord.Name = "btnAddRecord";
             this.btnAddRecord.Size = new System.Drawing.Size(236, 76);
             this.btnAddRecord.TabIndex = 20;
@@ -503,7 +591,7 @@
             // 
             // grpRecord
             // 
-            this.grpRecord.Controls.Add(this.dataGridView2);
+            this.grpRecord.Controls.Add(this.dataGridView3);
             this.grpRecord.Font = new System.Drawing.Font("Arial Rounded MT Bold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpRecord.Location = new System.Drawing.Point(319, 488);
             this.grpRecord.Name = "grpRecord";
@@ -512,88 +600,19 @@
             this.grpRecord.TabStop = false;
             this.grpRecord.Text = "RECORD";
             // 
-            // dataGridView2
+            // dataGridView3
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView2.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProductID,
-            this.ProductName,
-            this.Manufacturer,
-            this.Type,
-            this.Status,
-            this.Date,
-            this.Stck,
-            this.rAmount,
-            this.TPrice,
-            this.Prce});
-            this.dataGridView2.Location = new System.Drawing.Point(12, 43);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(1007, 206);
-            this.dataGridView2.TabIndex = 14;
-            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
-            // 
-            // ProductID
-            // 
-            this.ProductID.HeaderText = "Product ID";
-            this.ProductID.Name = "ProductID";
-            this.ProductID.ReadOnly = true;
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "Product Name";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // Manufacturer
-            // 
-            this.Manufacturer.HeaderText = "Manufacturer";
-            this.Manufacturer.Name = "Manufacturer";
-            this.Manufacturer.ReadOnly = true;
-            // 
-            // Type
-            // 
-            this.Type.HeaderText = "Type";
-            this.Type.Name = "Type";
-            this.Type.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "Date ";
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            // 
-            // Stck
-            // 
-            this.Stck.HeaderText = "Stock";
-            this.Stck.Name = "Stck";
-            this.Stck.ReadOnly = true;
-            // 
-            // rAmount
-            // 
-            this.rAmount.HeaderText = "Amount";
-            this.rAmount.Name = "rAmount";
-            // 
-            // TPrice
-            // 
-            this.TPrice.HeaderText = "Total Price";
-            this.TPrice.Name = "TPrice";
-            this.TPrice.ReadOnly = true;
-            // 
-            // Prce
-            // 
-            this.Prce.HeaderText = "Price";
-            this.Prce.Name = "Prce";
-            this.Prce.ReadOnly = true;
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(16, 46);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.ReadOnly = true;
+            this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView3.Size = new System.Drawing.Size(959, 150);
+            this.dataGridView3.TabIndex = 14;
+            this.dataGridView3.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView3_CellClick);
             // 
             // grpInventory
             // 
@@ -638,12 +657,13 @@
             this.Load += new System.EventHandler(this.RecordOut_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.grpRecord.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.grpInventory.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -704,5 +724,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Prce;
         private System.Windows.Forms.Label lblRecordNotice;
         private System.Windows.Forms.Button btnDeleteEntry;
+        private System.Windows.Forms.DataGridView dataGridView3;
     }
 }

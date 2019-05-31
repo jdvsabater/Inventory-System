@@ -53,6 +53,10 @@ namespace Paint_Products_Database
 
         private void btnRecords_Click_1(object sender, EventArgs e)
         {
+            RecordIN rin = new RecordIN();
+            rin.Refresh();
+
+
             rec.Show();
             rec.refreshInventory();
         }
@@ -66,13 +70,20 @@ namespace Paint_Products_Database
 
         private void btnRecordOut_Click(object sender, EventArgs e)
         {
+
+
             RecordOut rOut = new RecordOut();
+
+            rOut.Refresh();
+
             rOut.Show();
         }
 
         private void btnRecordReturn_Click(object sender, EventArgs e)
         {
             RecordReturn rReturn = new RecordReturn();
+            rReturn.Refresh();
+
             rReturn.Show();
         }
 
