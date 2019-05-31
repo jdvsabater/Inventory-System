@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.grpMenu = new System.Windows.Forms.GroupBox();
+            this.lblUsername = new System.Windows.Forms.Label();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnReport = new System.Windows.Forms.Button();
             this.btnRecordReturn = new System.Windows.Forms.Button();
@@ -38,12 +39,13 @@
             this.btnManufacturerList = new System.Windows.Forms.Button();
             this.btnRecordIN = new System.Windows.Forms.Button();
             this.btnInventory = new System.Windows.Forms.Button();
-            this.lblUsername = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.grpMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpMenu
             // 
+            this.grpMenu.Controls.Add(this.label1);
             this.grpMenu.Controls.Add(this.lblUsername);
             this.grpMenu.Controls.Add(this.btnLogOut);
             this.grpMenu.Controls.Add(this.btnReport);
@@ -59,6 +61,16 @@
             this.grpMenu.Size = new System.Drawing.Size(1336, 698);
             this.grpMenu.TabIndex = 0;
             this.grpMenu.TabStop = false;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(10, 16);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(51, 16);
+            this.lblUsername.TabIndex = 1;
+            this.lblUsername.Text = "label1";
             // 
             // btnLogOut
             // 
@@ -159,15 +171,15 @@
             this.btnInventory.UseVisualStyleBackColor = true;
             this.btnInventory.Click += new System.EventHandler(this.btnInventory_Click);
             // 
-            // lblUsername
+            // label1
             // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(10, 16);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(51, 16);
-            this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "label1";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(205, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "label1";
             // 
             // Form1
             // 
@@ -201,6 +213,7 @@
         public System.Windows.Forms.Button btnReport;
         public System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Label lblUsername;
+        private System.Windows.Forms.Label label1;
     }
 }
 

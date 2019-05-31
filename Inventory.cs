@@ -53,6 +53,11 @@ namespace Paint_Products_Database
             refreshInventory();
             refreshType();
             refreshManufacturer();
+
+            if (Variables.position != "Admin")
+            {
+                groupBox2.Enabled = false;
+            }
         }
         public void refreshType()
         {
@@ -440,6 +445,8 @@ namespace Paint_Products_Database
             txtStock.Clear();
             txtProductPrice.Clear();
             txtAlertQuantity.Clear();
+            cbxManufacturer.SelectedIndex = 0;
+            cbxType.SelectedIndex = 0;
             btnAdd.Enabled = true;
             btnEdit.Enabled = false;
             btnDelete.Enabled = false;
@@ -505,7 +512,7 @@ namespace Paint_Products_Database
                 }
                 else
                 {
-                    int price = Convert.ToInt32(txtProductPrice.Text);
+                    double price = Convert.ToDouble(txtProductPrice.Text);
                     int stock = Convert.ToInt32(txtStock.Text);
                     totalprice = stock * price;
                     con.Open();

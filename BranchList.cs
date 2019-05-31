@@ -270,7 +270,7 @@ namespace Paint_Products_Database
         {
             if ((btnAdd.Enabled == false) && (fnction == "Add"))
             {
-                if ((txtTinNumber.Text == "") || (txtBranchName.Text == "") || (txtBranchOwner.Text == "") || (rtbAddress.Text == "") || (txtTel.Text == ""))
+                if ((txtTinNumber.Text == "") || (txtBranchName.Text == "") || (rtbAddress.Text == "") || (txtTel.Text == ""))
                 {
                     MessageBox.Show("Fields must not be empty", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

@@ -468,7 +468,6 @@ namespace Paint_Products_Database
                 if (result == DialogResult.Yes)
                 {
                     con.Open();
-                    label14.Text = dataGridView3.Rows.Count.ToString();
                     for (int i = 0; i < dataGridView3.Rows.Count; i++)
                     {
                         txtID.Text = dataGridView3.Rows[i].Cells["ProductID"].Value.ToString();
@@ -585,6 +584,10 @@ namespace Paint_Products_Database
 
         private void btnDeleteEntry_Click(object sender, EventArgs e)
         {
+            txtRecordSearchBoxManufacturer.Clear();
+            txtRecordSearchBoxProductName.Clear();
+            txtRecordSearchBoxProductType.Clear();
+
             DialogResult result = MessageBox.Show("Do you really want to delete?", "Close Confirmation", MessageBoxButtons.YesNo/*Cancel*/, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {

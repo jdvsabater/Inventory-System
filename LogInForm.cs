@@ -14,6 +14,7 @@ namespace Paint_Products_Database
     class Variables
     {
         public static string username;
+        public static string position;
     }
     public partial class LogInForm : Form
     {
@@ -38,11 +39,13 @@ namespace Paint_Products_Database
             cmd.CommandText = "SELECT * FROM Users where UName='" + txtUserName.Text + "' AND PW='" + txtPassword.Text + "'";
             dr = cmd.ExecuteReader();
             Variables.username = txtUserName.Text;
+            
             if (dr.Read())
             {
                 type = dr["Type"].ToString();
                 this.Hide();
                 this.Parent = null;
+                Variables.position = type;
                 if (type == "Admin")
                 {
                     Form1 menu = new Form1();
@@ -56,8 +59,8 @@ namespace Paint_Products_Database
                     Form1 menu = new Form1();
                     menu.Show();
 
-                    
-
+                    menu.Size = new Size(1366, 350);
+                    menu.btnLogOut.Location = new Point(1103, 260);
                     menu.btnUserList.Visible = false;
                     menu.btnManufacturerList.Visible = false;
                     menu.btnReport.Visible = false;

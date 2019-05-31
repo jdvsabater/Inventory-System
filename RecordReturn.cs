@@ -581,6 +581,11 @@ namespace Paint_Products_Database
 
         private void btnDeleteEntry_Click(object sender, EventArgs e)
         {
+            txtRecordSearchBoxManufacturer.Clear();
+            txtRecordSearchBoxProductName.Clear();
+            txtRecordSearchBoxProductType.Clear();
+
+
             DialogResult result = MessageBox.Show("Do you really want to delete?", "Close Confirmation", MessageBoxButtons.YesNo/*Cancel*/, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {

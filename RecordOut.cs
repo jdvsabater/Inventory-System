@@ -279,31 +279,31 @@ namespace Paint_Products_Database
 
         private void cbxRecordSearchSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxInventorySearchSelect.Text == "Manufacturer")
+            if (cbxRecordSearchSelect.Text == "Manufacturer")
             {
-                txtInventorySearchBoxManufacturer.Show();
-                txtInventorySearchBoxProductName.Hide();
-                txtInventorySearchBoxProductType.Hide();
+                txtRecordSearchBoxManufacturer.Show();
+                txtRecordSearchBoxProductName.Hide();
+                txtRecordSearchBoxProductType.Hide();
 
                 txtRecordSearchBoxManufacturer.Text = "";
                 txtRecordSearchBoxProductName.Text = "";
                 txtRecordSearchBoxProductType.Text = "";
             }
-            else if (cbxInventorySearchSelect.Text == "Product ID")
+            else if (cbxRecordSearchSelect.Text == "Product ID")
             {
-                txtInventorySearchBoxManufacturer.Hide();
-                txtInventorySearchBoxProductName.Show();
-                txtInventorySearchBoxProductType.Hide();
+                txtRecordSearchBoxManufacturer.Hide();
+                txtRecordSearchBoxProductName.Show();
+                txtRecordSearchBoxProductType.Hide();
 
                 txtRecordSearchBoxManufacturer.Text = "";
                 txtRecordSearchBoxProductName.Text = "";
                 txtRecordSearchBoxProductType.Text = "";
             }
-            else if (cbxInventorySearchSelect.Text == "Product Type")
+            else if (cbxRecordSearchSelect.Text == "Product Type")
             {
-                txtInventorySearchBoxManufacturer.Hide();
-                txtInventorySearchBoxProductName.Hide();
-                txtInventorySearchBoxProductType.Show();
+                txtRecordSearchBoxManufacturer.Hide();
+                txtRecordSearchBoxProductName.Hide();
+                txtRecordSearchBoxProductType.Show();
 
                 txtRecordSearchBoxManufacturer.Text = "";
                 txtRecordSearchBoxProductName.Text = "";
@@ -555,6 +555,10 @@ namespace Paint_Products_Database
 
         private void btnDeleteEntry_Click(object sender, EventArgs e)
         {
+            txtRecordSearchBoxManufacturer.Clear();
+            txtRecordSearchBoxProductName.Clear();
+            txtRecordSearchBoxProductType.Clear();
+
             DialogResult result = MessageBox.Show("Do you really want to delete?", "Close Confirmation", MessageBoxButtons.YesNo/*Cancel*/, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {

@@ -104,8 +104,9 @@ namespace Paint_Products_Database
         {
             LogInForm lgf = new LogInForm();
             string user = "Current User: " + Variables.username.ToString();
-
+            string position = "Position: " + Variables.position.ToString();
             lblUsername.Text = user;
+            label1.Text = position;
         }
 
         private void Form1_Leave(object sender, EventArgs e)

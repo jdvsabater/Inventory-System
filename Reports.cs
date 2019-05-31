@@ -294,6 +294,27 @@ namespace Paint_Products_Database
 
         private void btnToExcel_Click(object sender, EventArgs e)
         {
+            txtInventorySearchBoxManufacturer.Clear();
+            txtInventorySearchBoxManufacturer2.Clear();
+            txtInventorySearchBoxManufacturer3.Clear();
+            txtInventorySearchBoxManufacturer4.Clear();
+
+            txtInventorySearchBoxProductName.Clear();
+            txtInventorySearchBoxProductName2.Clear();
+            txtInventorySearchBoxProductName3.Clear();
+            txtInventorySearchBoxProductName4.Clear();
+
+            txtInventorySearchBoxProductType.Clear();
+            txtInventorySearchBoxProductType2.Clear();
+            txtInventorySearchBoxProductType3.Clear();
+            txtInventorySearchBoxProductType4.Clear();
+
+            txtInventorySearchBoxStoreName3.Clear();
+
+            dtpFrom.Text = " ";
+            dtpFrom2.Text = " ";
+            dtpFrom3.Text = " ";
+
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
 
@@ -360,6 +381,27 @@ namespace Paint_Products_Database
 
         private void btnToExcel2_Click(object sender, EventArgs e)
         {
+            txtInventorySearchBoxManufacturer.Clear();
+            txtInventorySearchBoxManufacturer2.Clear();
+            txtInventorySearchBoxManufacturer3.Clear();
+            txtInventorySearchBoxManufacturer4.Clear();
+
+            txtInventorySearchBoxProductName.Clear();
+            txtInventorySearchBoxProductName2.Clear();
+            txtInventorySearchBoxProductName3.Clear();
+            txtInventorySearchBoxProductName4.Clear();
+
+            txtInventorySearchBoxProductType.Clear();
+            txtInventorySearchBoxProductType2.Clear();
+            txtInventorySearchBoxProductType3.Clear();
+            txtInventorySearchBoxProductType4.Clear();
+
+            txtInventorySearchBoxStoreName3.Clear();
+
+            dtpFrom.Text = " ";
+            dtpFrom2.Text = " ";
+            dtpFrom3.Text = " ";
+
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
 
@@ -395,6 +437,27 @@ namespace Paint_Products_Database
 
         private void btnToExcel3_Click(object sender, EventArgs e)
         {
+            txtInventorySearchBoxManufacturer.Clear();
+            txtInventorySearchBoxManufacturer2.Clear();
+            txtInventorySearchBoxManufacturer3.Clear();
+            txtInventorySearchBoxManufacturer4.Clear();
+
+            txtInventorySearchBoxProductName.Clear();
+            txtInventorySearchBoxProductName2.Clear();
+            txtInventorySearchBoxProductName3.Clear();
+            txtInventorySearchBoxProductName4.Clear();
+
+            txtInventorySearchBoxProductType.Clear();
+            txtInventorySearchBoxProductType2.Clear();
+            txtInventorySearchBoxProductType3.Clear();
+            txtInventorySearchBoxProductType4.Clear();
+
+            txtInventorySearchBoxStoreName3.Clear();
+
+            dtpFrom.Text = " ";
+            dtpFrom2.Text = " ";
+            dtpFrom3.Text = " ";
+
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
 
@@ -430,6 +493,27 @@ namespace Paint_Products_Database
 
         private void btnToExcel4_Click(object sender, EventArgs e)
         {
+            txtInventorySearchBoxManufacturer.Clear();
+            txtInventorySearchBoxManufacturer2.Clear();
+            txtInventorySearchBoxManufacturer3.Clear();
+            txtInventorySearchBoxManufacturer4.Clear();
+
+            txtInventorySearchBoxProductName.Clear();
+            txtInventorySearchBoxProductName2.Clear();
+            txtInventorySearchBoxProductName3.Clear();
+            txtInventorySearchBoxProductName4.Clear();
+
+            txtInventorySearchBoxProductType.Clear();
+            txtInventorySearchBoxProductType2.Clear();
+            txtInventorySearchBoxProductType3.Clear();
+            txtInventorySearchBoxProductType4.Clear();
+
+            txtInventorySearchBoxStoreName3.Clear();
+
+            dtpFrom.Text = " ";
+            dtpFrom2.Text = " ";
+            dtpFrom3.Text = " ";
+
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
 
