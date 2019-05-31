@@ -28,6 +28,7 @@ namespace Paint_Products_Database
         int tempamount;//
         double tempprice;//
         int row;//
+        int submitted = 0;
         public void storeRefresh()
         {
             con.Open();
@@ -337,20 +338,32 @@ namespace Paint_Products_Database
             DialogResult result = MessageBox.Show("Are you done Recording?", "Close Confirmation", MessageBoxButtons.YesNo/*Cancel*/, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                resetStocks();
+                if (submitted == 0)
+                {
+                    resetStocks();
 
-                con.Open();
-                string comand = "DELETE FROM TempRecordReturn";
-                cmd = new OleDbCommand(comand, con);
-                cmd.ExecuteNonQuery();
+                    con.Open();
+                    string comand = "DELETE FROM TempRecordReturn";
+                    cmd = new OleDbCommand(comand, con);
+                    cmd.ExecuteNonQuery();
 
-                con.Close();
+                    con.Close();
 
-                dataGridView3.Visible = false;
-                refreshRecordsReturn();
-                this.Hide();
-                this.Parent = null;
-                e.Cancel = true;
+                    dataGridView3.Visible = false;
+                    refreshRecordsReturn();
+                    this.Hide();
+                    this.Parent = null;
+                    e.Cancel = true;
+                }
+                else if (submitted == 1)
+                {
+                    dataGridView3.Visible = false;
+                    refreshRecordsReturn();
+                    this.Hide();
+                    this.Parent = null;
+                    e.Cancel = true;
+                }
+                
             }
 
             else
@@ -361,7 +374,7 @@ namespace Paint_Products_Database
 
         private void dataGridView1_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
+            btnSubmit.Enabled = true;
             btnAddRecord.Enabled = true;
             btnDeleteEntry.Enabled = false;
 
@@ -414,6 +427,7 @@ namespace Paint_Products_Database
                 txtTotalAmount.Text = "";
                 txtPrice.Text = "";
                 btnSubmit.Enabled = true;
+                submitted = 0;
             }
             catch
             {
@@ -463,8 +477,8 @@ namespace Paint_Products_Database
             txtRecordSearchBoxProductType.Clear();
             txtRecordSearchBoxManufacturer.Clear();
             txtRecordSearchBoxProductName.Clear();
+            
 
-               
             if (dataGridView3.Rows.Count == 0)
             {
                 MessageBox.Show("Record Table is Empty!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -530,10 +544,18 @@ namespace Paint_Products_Database
                 
 
             }
-
+            txtID.Text = "";
+            txtProductName.Text = "";
+            cbxManufacturer.Text = "";
+            cbxType.Text = "";
+            txtStock.Text = "";
+            txtAmount.Text = "";
+            txtTotalAmount.Text = "";
+            txtPrice.Text = "";
             txtAmount.Text = " ";
             Reports rpts = new Reports();
             rpts.Refresh();
+            submitted = 1;
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)

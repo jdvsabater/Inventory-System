@@ -27,6 +27,7 @@ namespace Paint_Products_Database
         int tempamount;//
         int row;
         double tempprice;//
+        int submitted = 0;
         public void refreshInventory()
         {
             try
@@ -88,6 +89,13 @@ namespace Paint_Products_Database
                     con.Close();
                     stocksubmit = stock;
                     txtStock.Text = Convert.ToString(stock);
+
+                    tempRecordOut();
+
+                    refreshInventory();
+                    refreshRecordsOut();
+                    btnSubmit.Enabled = true;
+
                 }
             }
             
@@ -305,7 +313,7 @@ namespace Paint_Products_Database
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            btnSubmit.Enabled = true;
             btnAddRecord.Enabled = true;
             btnDeleteEntry.Enabled = false;
 
@@ -334,11 +342,7 @@ namespace Paint_Products_Database
                 else
                 {
                     updateInventorymethod();
-                    tempRecordOut();
-
-                    refreshInventory();
-                    refreshRecordsOut();
-                    btnSubmit.Enabled = true;
+                    
                 }
 
                 dataGridView3.Visible = true;
@@ -350,6 +354,9 @@ namespace Paint_Products_Database
                 txtAmount.Text = " ";
                 txtTotalAmount.Text = "";
                 txtPrice.Text = "";
+                btnSubmit.Enabled = true;
+
+                 submitted = 0;
             }
             catch
             {
@@ -464,12 +471,21 @@ namespace Paint_Products_Database
 
                 
             }
-
+            txtID.Text = "";
+            txtProductName.Text = "";
+            cbxManufacturer.Text = "";
+            cbxType.Text = "";
+            txtStock.Text = "";
+            txtAmount.Text = " ";
+            txtTotalAmount.Text = "";
+            txtPrice.Text = "";
             txtAmount.Text = " ";
             RecordOut rout = new RecordOut();
             rout.Refresh();
             Reports rpts = new Reports(); 
             rpts.Refresh(); rpts.Refresh();
+
+            submitted = 1;
 
         }
 
@@ -478,21 +494,33 @@ namespace Paint_Products_Database
             DialogResult result = MessageBox.Show("Are you done Recording?", "Close Confirmation", MessageBoxButtons.YesNo/*Cancel*/, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                resetStocks();
+                if (submitted == 0)
+                {
+                    resetStocks();
 
-                con.Open();
-                string comand = "DELETE FROM TempRecordOut";
-                cmd = new OleDbCommand(comand, con);
-                cmd.ExecuteNonQuery();
+                    con.Open();
+                    string comand = "DELETE FROM TempRecordOut";
+                    cmd = new OleDbCommand(comand, con);
+                    cmd.ExecuteNonQuery();
 
-                con.Close();
+                    con.Close();
 
 
-                dataGridView3.Visible = false;
-                refreshRecordsOut();
-                this.Hide();
-                this.Parent = null;
-                e.Cancel = true;
+                    dataGridView3.Visible = false;
+                    refreshRecordsOut();
+                    this.Hide();
+                    this.Parent = null;
+                    e.Cancel = true;
+                }
+                else if (submitted == 1)
+                {
+                    dataGridView3.Visible = false;
+                    refreshRecordsOut();
+                    this.Hide();
+                    this.Parent = null;
+                    e.Cancel = true;
+                }
+                
             }
 
             else

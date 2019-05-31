@@ -208,6 +208,11 @@ namespace Paint_Products_Database
             DialogResult result = MessageBox.Show("Do you really want to delete?", "Close Confirmation", MessageBoxButtons.YesNo/*Cancel*/, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                if (dataGridView1.RowCount == 1)
+                {
+                    dataGridView1.Visible = false;
+                }
+
                 con.Open();
                 cmd = new OleDbCommand("DELETE FROM Branch WHERE TinNumber = '" + dataGridView1.SelectedCells[0].Value.ToString() + "'", con);
                 cmd.ExecuteNonQuery();
@@ -355,6 +360,10 @@ namespace Paint_Products_Database
             RecordReturn rreturn = new RecordReturn();
 
             rreturn.Refresh();
+            dataGridView1.Visible = true;
         }
+        
+
+
     }
 }

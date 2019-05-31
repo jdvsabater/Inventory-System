@@ -223,6 +223,11 @@ namespace Paint_Products_Database
             DialogResult result = MessageBox.Show("Do you really want to delete?", "Close Confirmation", MessageBoxButtons.YesNo/*Cancel*/, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
+                if (dataGridView1.RowCount == 1)
+                {
+                    dataGridView1.Visible = false;
+                }
+
                 con.Open();
                 cmd = new OleDbCommand("DELETE FROM Manufacturer WHERE TinNumber = '" + dataGridView1.SelectedCells[0].Value.ToString() + "'", con);
                 cmd.ExecuteNonQuery();
@@ -242,10 +247,7 @@ namespace Paint_Products_Database
                 btnCancel.Enabled = false;
                 btnSave.Enabled = false;
                 btnClear.Enabled = false;
-                if (dataGridView1.RowCount == 1)
-                {
-                    dataGridView1.Visible = false;
-                }
+                
             }
 
             else
@@ -371,6 +373,7 @@ namespace Paint_Products_Database
                 rtbAddress.Enabled = false;
                 txtTel.Enabled = false;
             }
+            dataGridView1.Visible = true;
         }
     }
 }

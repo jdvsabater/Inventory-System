@@ -20,3 +20,4 @@ C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\bi
 C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\bin\Debug\WindowsApplication.pdb
 C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\x86\Debug\WindowsApplication.exe
 C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\x86\Debug\WindowsApplication.pdb
+C:\Program Files (x86)\PRODUCTS INVENTORY AND RECORDS\Paint Products Database\obj\x86\Debug\Paint Products Database.csprojAssemblyReference.cache

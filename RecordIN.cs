@@ -28,6 +28,7 @@ namespace Paint_Products_Database
         int row;
         double tempprice;//
         string strQuery;
+        int submmited = 0;
 
 
         public void refreshInventory()
@@ -232,6 +233,7 @@ namespace Paint_Products_Database
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnAddRecord.Enabled = true;
+            btnSubmit.Enabled = true;
             btnDeleteEntry.Enabled = false;
             txtID.Text = dataGridView1.CurrentRow.Cells["ProductID"].Value.ToString();
             txtProductName.Text = dataGridView1.CurrentRow.Cells["ProductName"].Value.ToString();
@@ -350,6 +352,7 @@ namespace Paint_Products_Database
                 txtAmount.Text = "";
                 txtTotalAmount.Text = "";
                 txtPrice.Text = "";
+                submmited = 0;
                 
             }
             catch
@@ -363,24 +366,40 @@ namespace Paint_Products_Database
             DialogResult result = MessageBox.Show("Are you done Recording?", "Close Confirmation", MessageBoxButtons.YesNo/*Cancel*/, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
-                resetStocks();
 
-                con.Open();
-                string comand = "DELETE FROM TempRecordIn";
-                cmd = new OleDbCommand(comand, con);
-                cmd.ExecuteNonQuery();
+                if (submmited == 0)
+                {
+                    resetStocks();
 
-                con.Close();
+                    con.Open();
+                    string comand = "DELETE FROM TempRecordIn";
+                    cmd = new OleDbCommand(comand, con);
+                    cmd.ExecuteNonQuery();
+
+                    con.Close();
 
 
 
-                dataGridView3.Visible = false;
-                RecordIN rin = new RecordIN();
-                rin.Refresh();
+                    dataGridView3.Visible = false;
+                    RecordIN rin = new RecordIN();
+                    rin.Refresh();
 
-                this.Hide();
-                this.Parent = null;
-                e.Cancel = true;
+                    this.Hide();
+                    this.Parent = null;
+                    e.Cancel = true;
+                }
+
+                else if (submmited == 1)
+                {
+                   
+                    dataGridView3.Visible = false;
+                    RecordIN rin = new RecordIN();
+                    rin.Refresh();
+
+                    this.Hide();
+                    this.Parent = null;
+                    e.Cancel = true;
+                }
 
 
             }
@@ -438,6 +457,7 @@ namespace Paint_Products_Database
             txtRecordSearchBoxProductType.Clear();
             txtRecordSearchBoxManufacturer.Clear();
             txtRecordSearchBoxProductName.Clear();
+            
             if (dataGridView3.Rows.Count == 0)
             {
                 MessageBox.Show("Record Table is Empty!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -448,7 +468,7 @@ namespace Paint_Products_Database
                 if (result == DialogResult.Yes)
                 {
                     con.Open();
-
+                    label14.Text = dataGridView3.Rows.Count.ToString();
                     for (int i = 0; i < dataGridView3.Rows.Count; i++)
                     {
                         txtID.Text = dataGridView3.Rows[i].Cells["ProductID"].Value.ToString();
@@ -504,7 +524,7 @@ namespace Paint_Products_Database
                     btnSubmit.Enabled = false;
                     lblRecordNotice.Text = "RECORD(s) IS SUBMITTED!";
 
-
+                    submmited = 1;
                     dataGridView3.Visible = false;
                 }
 
@@ -516,7 +536,14 @@ namespace Paint_Products_Database
 
                 
             }
-
+            txtID.Text = "";
+            txtProductName.Text = "";
+            cbxManufacturer.Text = "";
+            cbxType.Text = "";
+            txtStock.Text = "";
+            txtAmount.Text = "";
+            txtTotalAmount.Text = "";
+            txtPrice.Text = "";
             txtAmount.Text = " ";
             RecordIN rin = new RecordIN();
             rin.Refresh();

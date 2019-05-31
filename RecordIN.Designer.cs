@@ -81,6 +81,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.grpInventory.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.grpRecord.SuspendLayout();
@@ -383,6 +384,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.btnDeleteEntry);
             this.groupBox1.Controls.Add(this.dataGridView2);
             this.groupBox1.Controls.Add(this.lblRecordNotice);
@@ -639,6 +641,15 @@
             this.label8.TabIndex = 8;
             this.label8.Text = "PRODUCT NAME:";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1092, 30);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(76, 22);
+            this.label14.TabIndex = 32;
+            this.label14.Text = "label14";
+            // 
             // RecordIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -725,5 +736,6 @@
         public System.Windows.Forms.TextBox txtTotalAmount;
         private System.Windows.Forms.Button btnDeleteEntry;
         private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Label label14;
     }
 }
